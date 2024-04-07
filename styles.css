@@ -1,0 +1,45 @@
+body {
+    background-image: url('images/anime_collage.jpg');
+    /* Path to your anime image */
+    background-size: cover;
+    /* Cover the entire background */
+    background-repeat: no-repeat;
+    /* Do not repeat the background image */
+    background-attachment: fixed;
+    /* Fixed background position */
+    margin: 0;
+    /* Remove default margin */
+    padding: 0;
+    /* Remove default padding */
+}
+
+h5 {
+    padding-bottom: 25px;
+}
+
+.quiz-container {
+    background-color: rgba(255, 255, 255, 0.975);
+    /* White background with transparency */
+    padding: 20px;
+    /* Add padding to the container */
+    width: 80%;
+    /* 80% of the viewport width */
+    height: 80%;
+    /* 80% of the viewport height */
+    position: fixed;
+    /* Fixed positioning */
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform: translate(-50%, -50%);
+    /* Move the box back by half its width and height */
+    border-radius: 10px;
+    display: flex;
+    /* Use flexbox for centering */
+    flex-direction: column;
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    /* Center content vertically */
+}

@@ -1,6 +1,7 @@
 const quizContainer = document.getElementById('quiz');
 const submitButton = document.getElementById('submit');
 const resultContainer = document.getElementById('result');
+const startButton = document.getElementById('start');
 
 // Define your quiz questions here
 const myQuestions = [
@@ -38,3 +39,4 @@ buildQuiz();
 
 // Event listener for submit button
 submitButton.addEventListener('click', showResults);
+startButton.addEventListener('click', startQuiz);
