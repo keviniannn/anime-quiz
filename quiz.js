@@ -222,7 +222,9 @@ function showResults() {
     console.log("user answers:", userAnswers); // display answer array
 
     score = 0;
-    
+
+    let resultHTML = '';
+
     myQuestions.forEach((question, questionIndex) => {
         resultHTML += `<div class="question">${questionIndex + 1}. ${question.question}</div>`;
         
