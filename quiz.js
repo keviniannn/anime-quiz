@@ -222,9 +222,7 @@ function showResults() {
     console.log("user answers:", userAnswers); // display answer array
 
     score = 0;
-
-    let resultHTML = `<h2>You scored ${score} out of ${myQuestions.length}</h2>`;
-
+    
     myQuestions.forEach((question, questionIndex) => {
         resultHTML += `<div class="question">${questionIndex + 1}. ${question.question}</div>`;
         
@@ -250,6 +248,8 @@ function showResults() {
             `;
         }
     });
+
+    resultHTML += `<h2>You scored ${score} out of ${myQuestions.length}</h2>`;
 
     resultContainer.innerHTML = resultHTML;
     resultContainer.style.overflow = 'auto'; // Ensure overflow is handled
