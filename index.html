@@ -6,14 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anime Quiz</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css">
-</head>
+  <link rel="stylesheet" href="styles.css"> </head>
 
 <body>
   <div class="quiz-container container">
     <h1>Anime Quiz</h1>
     <h5>How well do you know anime?</h5>
     <button id="start" class="btn btn-primary">Start Quiz</button>
+    <div id="quiz" style="display: none;"></div>
+    <div id="result" style="display: none;"></div>
+    <button id="retakeButton" class="btn btn-secondary" style="display: none;">Retake Quiz</button>
   </div>
   <script src="quiz.js"></script>
 </body>
