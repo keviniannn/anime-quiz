@@ -160,10 +160,12 @@ function buildQuiz() {
         output += `
         <label>
             <input type="radio" name="question${currentQuestion}" value="${letter}" onchange="showNextQuestion()">
+            
             ${letter} :
             ${currentQuizQuestion.answers[letter]}
         </label>
         <br>`;
+
     }
 
     console.log("html output:", output);
@@ -174,7 +176,7 @@ function showNextQuestion() {
     // append selected answer to array
     const selectedAnswer = document.querySelector(`input[name="question${currentQuestion}"]:checked`);
     if (selectedAnswer) {
-        userAnswers[currentQuestion] = selectedAnswer.value;
+        userAnswers[currentQuestion] = selectedAnswer.value;  
     }
 
     // check if last question
@@ -187,6 +189,8 @@ function showNextQuestion() {
     }
 }
 
+
+
 function startQuiz() {
     console.log("starting quiz");
 
@@ -195,7 +199,7 @@ function startQuiz() {
     buildQuiz(); // initiate quiz
 }
 
-function showResults() {
+/*function showResults() {
     console.log("user answers:", userAnswers); // display answer array
 
     score = 0;
@@ -212,7 +216,49 @@ function showResults() {
     quizContainer.style.display = 'none'; // hide quiz
     resultContainer.style.display = 'block'; // show user results
     retakeButton.style.display = 'block'; // show retake button
+}*/
+
+function showResults() {
+    console.log("user answers:", userAnswers); // display answer array
+
+    score = 0;
+
+    let resultHTML = `<h2>You scored ${score} out of ${myQuestions.length}</h2>`;
+
+    myQuestions.forEach((question, questionIndex) => {
+        resultHTML += `<div class="question">${questionIndex + 1}. ${question.question}</div>`;
+        
+        if (userAnswers[questionIndex]) {
+            const userAnswer = userAnswers[questionIndex];
+            const correctAnswer = question.correctAnswer;
+
+            // Compare user's answer with correct answer
+            const isCorrect = userAnswer === correctAnswer;
+
+            // Update score if answer is correct
+            if (isCorrect) {
+                score++;
+            }
+
+            // Display user's answer and correct answer
+            resultHTML += `
+                <div class="answer">
+                    Your answer: ${question.answers[userAnswer]}
+                    <br>
+                    Correct answer: ${question.answers[correctAnswer]}
+                </div>
+            `;
+        }
+    });
+
+    resultContainer.innerHTML = resultHTML;
+    resultContainer.style.overflow = 'auto'; // Ensure overflow is handled
+    quizContainer.style.display = 'none'; // hide quiz
+    resultContainer.style.display = 'block'; // show user results
+    retakeButton.style.display = 'block'; // show retake button
 }
+
+
 
 startButton.addEventListener('click', startQuiz);
 
@@ -229,3 +275,6 @@ retakeButton.addEventListener('click', () => {
     quizContainer.style.display = 'block';
     buildQuiz(); // initiate quiz
 });
+
+
+
